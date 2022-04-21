@@ -3,14 +3,14 @@ const operadorBotoes = document.querySelectorAll("[data-operador]");
 const igualBotoes = document.querySelector("[data-igual]");
 const deleteBotoes = document.querySelector("[data-delete]");
 const limpatudo = document.querySelector("[data-limpa-tudo]");
-const anteOperTextElement = document.querySelector("[data-prev]");
-const actOperTextElement = document.querySelector("[data-curr]");
+const anteOperTextElement = document.querySelector("[data-anterior]");
+const actOperTextElement = document.querySelector("[data-actual]");
 
 class Calculador{
     constructor(anteOperTextElement, actOperTextElement){
-        this.actOperTextElement = actOperTextElement;
-        this.anteOperTextElement = anteOperTextElement;
-        this.limpar();
+      this.actOperTextElement = actOperTextElement;
+      this.anteOperTextElement = anteOperTextElement;
+      this.limpar();
     }
     pegarNumber(num){
       if(this.actuaOperand.includes('.') && num === '.') return;
@@ -42,32 +42,31 @@ class Calculador{
       this.actuaOperand = '';
 
     }
-    calcula(){
-      let res;
-      const ante = parseFloat(this.antaOperand);
-      const actual =parseFloat(this.actuaOperand);
-      if(isNaN(ante) || isNaN(actual)) return;
+calcula(){
+  let res;
+  const ante = parseFloat(this.antaOperand);
+  const actual =parseFloat(this.actuaOperand);
+  if(isNaN(ante) || isNaN(actual)) return;
+  switch (this.operacao) {
+    case '+':
+      res = ante + actual;
+      break;
+    case '-':
+      res = ante - actual;
+      break;
+    case '*':
+      res = ante * actual;
+      break;
+    case '÷':
+      res = ante / actual;
+      break;
+    default:
+      return;
+  }
 
-      switch (this.operacao) {
-          case '+':
-              res = ante + actual;
-              break;
-          case '-':
-              res = ante - actual;
-              break;
-          case '*':
-              res = ante * actual;
-              break;
-          case '÷':
-              res = ante / actual;
-              break;
-          default:
-              return;
-      }
-
-      this.actuaOperand = res;
-      this.operacao = undefined;
-      this.antaOperand = '';
+  this.actuaOperand = res;
+  this.operacao = undefined;
+  this.antaOperand = '';
 
  }
 
