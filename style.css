@@ -32,9 +32,7 @@ body{
 .grid-container > .op{
   background: #87a1ab;
 }
-.grid-container > .equal{
-  background: #87a1ab;
-}
+
 .grid-container > .span{
   grid-column: 1/3;
 }
