@@ -1,0 +1,61 @@
+*{
+  box-sizing: border-box;
+  font-family: "Fira Code";
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: linear-gradient(to right, #1465bb,  #41b883);
+}
+
+.grid-container{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 75px);
+}
+.grid-container > button{
+  cursor: pointer;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background-color: #2196f3;
+  color: #111;
+}
+
+.grid-container > button:hover{
+  background-color: #81c9fa;
+}
+.grid-container > .op{
+  background: #87a1ab;
+}
+.grid-container > .equal{
+  background: #87a1ab;
+}
+.grid-container > .span{
+  grid-column: 1/3;
+}
+.grid-container > .output{
+  grid-column: 1/-1;
+  background: #c8dfe2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.grid-container >.output > .anterior-digitad{
+  color: #111;
+  font-size: 1.5rem;
+}
+.grid-container > .output > .actual-digitado{
+  color: #111;
+  font-size: 2rem;
+
+}
