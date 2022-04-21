@@ -12,7 +12,7 @@ Em projectos reais.
 </div>
 
 
-## ⭐ Como rodar o projeto
+##  COMO RODAR O PROJETO
 Basta abrir o arquivo index.html em qualquer navegador web.
 
 Caso alguem tiver alguma sugestão pode mandar sua pull request :)
