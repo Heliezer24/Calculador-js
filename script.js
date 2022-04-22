@@ -12,28 +12,28 @@ class Calculador{
       this.anteOperTextElement = anteOperTextElement;
       this.limpar();
     }
-    pegarNumber(num){
+    pegarNumber(num){ //Esta função serve para pegar os numeros e fazer o tratamento.
       if(this.actuaOperand.includes('.') && num === '.') return;
       
       this.actuaOperand = `${this.actuaOperand}${num.toString()}`;
       //this.actuaOperand = this.actuaOperand.toString() + num.toString();
     }
 
-    limpar(){
+    limpar(){ // Esta função serve para limpar os números digitados
       this.actuaOperand = "";
       this.antaOperand = "";
       this.operacao = undefined;
     }
 
-    delete(){
+    delete(){ //Esta função serve para eliminar um unico digito, nesse caso do fim.
       this.actuaOperand = this.actuaOperand.toString().slice(0, -1);
     }
 
-    actualizarTela(){
+    actualizarTela(){ // A função que actualiza a tela, e faz actualização dos numeros digitados na tela
       this.anteOperTextElement.innerText = this.antaOperand;
       this.actOperTextElement.innerText = this.actuaOperand;
     }
-    opcao(operacao){
+    opcao(operacao){//Esta função serve para saber qual operação.
       if(this.actuaOperand === '') return;
       if(this.antaOperand !== '') this.calcula();
 
@@ -42,7 +42,7 @@ class Calculador{
       this.actuaOperand = '';
 
     }
-calcula(){
+calcula(){// Esta função e que faz os calculos.
   let res;
   const ante = parseFloat(this.antaOperand);
   const actual =parseFloat(this.actuaOperand);
@@ -77,31 +77,31 @@ const calculador = new Calculador(
   actOperTextElement
 );
 
-for (const numBotao of numBotoes) {
+for (const numBotao of numBotoes) { // Serve para saber qual digito foi digitado.
   numBotao.addEventListener("click", () => {
     calculador.pegarNumber(numBotao.innerHTML);
     calculador.actualizarTela();
   });   
 }
 
-for(const operadorBotao of operadorBotoes){
+for(const operadorBotao of operadorBotoes){ // Serve para saber qual operação foi digitado
   operadorBotao.addEventListener("click", () =>{
     calculador.opcao(operadorBotao.innerText);
     calculador.actualizarTela();
   })
 }
 
-limpatudo.addEventListener("click", () => {
+limpatudo.addEventListener("click", () => {// Adicionando o evento no button para ter uma acção
   calculador.limpar(); //server para limpar as variavais
   calculador.actualizarTela(); //server para actualizar os dados na tela
 });
 
-igualBotoes.addEventListener("click", () =>{
+igualBotoes.addEventListener("click", () =>{//server para mostrar o resultado
   calculador.calcula();
   calculador.actualizarTela();
 });
 
-deleteBotoes.addEventListener("click", button =>{
+deleteBotoes.addEventListener("click", () =>{
   calculador.delete();
   calculador.actualizarTela();
 })
