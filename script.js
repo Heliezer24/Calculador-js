@@ -6,6 +6,8 @@ const limpatudo = document.querySelector("[data-limpa-tudo]");
 const anteOperTextElement = document.querySelector("[data-anterior]");
 const actOperTextElement = document.querySelector("[data-actual]");
 
+const actOperTextElemento = document.querySelector("[data-actual]");//add github
+
 class Calculador{
     constructor(anteOperTextElement, actOperTextElement){
       this.actOperTextElement = actOperTextElement;
