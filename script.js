@@ -14,6 +14,32 @@ class Calculador{
       this.anteOperTextElement = anteOperTextElement;
       this.limpar();
     }
+
+    formataNumero(numero){
+      const stingNumero = numero.toString();
+
+      const intDigito = parseFloat(stingNumero.spit(".")[0]);
+
+      const decimalDigito = stingNumero.spit(".")[1];
+
+      let intTela;
+
+      if (isNaN(intDigito)) {
+        intTela = "";
+        
+  } else {
+      intTela = intDigito.toLocaleString("en", {
+      maximumFractionDigits :0,
+    });
+  }
+  if (decimalDigito != null) {  
+    return `${intTela}.${decimalDigito}`;
+  } else {
+    return intTela;
+  }
+}
+
+
     pegarNumber(num){ //Esta função serve para pegar os numeros e fazer o tratamento.
       if(this.actuaOperand.includes('.') && num === '.') return;
       
