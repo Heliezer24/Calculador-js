@@ -18,26 +18,26 @@ class Calculador{
     formataNumero(numero){
       const stingNumero = numero.toString();
 
-      const intDigito = parseFloat(stingNumero.spit(".")[0]);
+      const intDigito = parseFloat(stingNumero.split(".")[0]);
 
-      const decimalDigito = stingNumero.spit(".")[1];
+      const decimalDigito = stingNumero.split(".")[1];
 
       let intTela;
 
       if (isNaN(intDigito)) {
         intTela = "";
         
-  } else {
-      intTela = intDigito.toLocaleString("en", {
-      maximumFractionDigits :0,
-    });
+      } else {
+        intTela = intDigito.toLocaleString("en", {
+        maximumFractionDigits :0,
+      });
+      }
+      if (decimalDigito != null) {  
+        return `${intTela}.${decimalDigito}`;
+      } else {
+      return intTela;
+    }
   }
-  if (decimalDigito != null) {  
-    return `${intTela}.${decimalDigito}`;
-  } else {
-    return intTela;
-  }
-}
 
 
     pegarNumber(num){ //Esta função serve para pegar os numeros e fazer o tratamento.
@@ -58,8 +58,8 @@ class Calculador{
     }
 
     actualizarTela(){ // A função que actualiza a tela, e faz actualização dos numeros digitados na tela
-      this.anteOperTextElement.innerText = this.antaOperand;
-      this.actOperTextElement.innerText = this.actuaOperand;
+      this.anteOperTextElement.innerText = this.formataNumero(this.antaOperand);
+      this.actOperTextElement.innerText = this.formataNumero(this.actuaOperand);
     }
     opcao(operacao){//Esta função serve para saber qual operação.
       if(this.actuaOperand === '') return;
